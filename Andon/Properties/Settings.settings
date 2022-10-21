@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Andon.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FormTittle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LINE 47</Value>
+    </Setting>
+    <Setting Name="PLANT_BD_CD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PH</Value>
+    </Setting>
+    <Setting Name="OP_GROUP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UPS,UPC,FGA,FSS</Value>
+    </Setting>
+    <Setting Name="LINE_CD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">047,048</Value>
+    </Setting>
+    <Setting Name="ROW_HEIGHT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="TIMER_ANDON" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="DIRECT_GATE_YN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="GATE_COM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM4</Value>
+    </Setting>
+    <Setting Name="GATE_BAUDRATE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">115200</Value>
+    </Setting>
+    <Setting Name="GATE_SERVER_SOCKET_YN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N</Value>
+    </Setting>
+    <Setting Name="DIRECT_CONNECTION" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User Id=LMES;Password=LMES;Server=10.10.100.10;Direct=True;Sid=LMES</Value>
+    </Setting>
+    <Setting Name="DIRECT_CONNECT_YN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+    <Setting Name="SWITCH_FORM_YN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">N</Value>
+    </Setting>
+    <Setting Name="SWITCH_TIMER" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="SOUND_YN" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Y</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

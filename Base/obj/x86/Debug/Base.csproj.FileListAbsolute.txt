@@ -1,0 +1,11 @@
+D:\Project\ANDON\JJ2\Base\bin\Debug\Base.dll.config
+D:\Project\ANDON\JJ2\Base\bin\Debug\Base.dll
+D:\Project\ANDON\JJ2\Base\bin\Debug\Base.pdb
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.FrmBaseAndon.resources
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.FrmBase.resources
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.Properties.Resources.resources
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.csproj.GenerateResource.Cache
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.dll.licenses
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.dll
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.pdb
+D:\Project\ANDON\JJ2\Base\obj\x86\Debug\Base.csprojResolveAssemblyReference.cache

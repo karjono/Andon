@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00F37318-8749-4AD2-88E4-082B8A7506A8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Andon</RootNamespace>
+    <AssemblyName>JJ_Andon</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>speaker.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Devart.Data, Version=5.0.792.0, Culture=neutral, PublicKeyToken=09af7300eec23701">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Devart.Data.Oracle, Version=7.9.333.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v15.2.Core, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.OracleClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AndonStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AndonStatus.Designer.cs">
+      <DependentUpon>AndonStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonSmart2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonSmart2.Designer.cs">
+      <DependentUpon>FrmAndonSmart2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonOSR2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonOSR2.Designer.cs">
+      <DependentUpon>FrmAndonOSR2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonSmart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonSmart.Designer.cs">
+      <DependentUpon>FrmAndonSmart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonAcc_UPH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonAcc_UPH.Designer.cs">
+      <DependentUpon>FrmAndonAcc_UPH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonIP_CKP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonIP_CKP.Designer.cs">
+      <DependentUpon>FrmAndonIP_CKP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonOSR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonOSR.Designer.cs">
+      <DependentUpon>FrmAndonOSR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonAcc_UPE_UPF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonAcc_UPE_UPF.Designer.cs">
+      <DependentUpon>FrmAndonAcc_UPE_UPF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonAcc_CINSKIINC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonAcc_CINSKIINC.Designer.cs">
+      <DependentUpon>FrmAndonAcc_CINSKIINC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantMMTL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantMMTL.Designer.cs">
+      <DependentUpon>FrmAndonPlantMMTL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_UPC_UPN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_UPC_UPN.Designer.cs">
+      <DependentUpon>FrmAndonPlantD_UPC_UPN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_UPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_UPS.Designer.cs">
+      <DependentUpon>FrmAndonPlantD_UPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_FSS_FGA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantD_FSS_FGA.Designer.cs">
+      <DependentUpon>FrmAndonPlantD_FSS_FGA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPH_CKP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPH_CKP.Designer.cs">
+      <DependentUpon>FrmAndonPH_CKP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantBC_UPC_UPN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantBC_UPC_UPN.Designer.cs">
+      <DependentUpon>FrmAndonPlantBC_UPC_UPN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlantBC_UPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlantBC_UPS.Designer.cs">
+      <DependentUpon>FrmAndonPlantBC_UPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonOSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonOSP.Designer.cs">
+      <DependentUpon>FrmAndonOSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAndonPlant_FSS_FGA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAndonPlant_FSS_FGA.Designer.cs">
+      <DependentUpon>FrmAndonPlant_FSS_FGA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AndonStatus.resx">
+      <DependentUpon>AndonStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonSmart2.resx">
+      <DependentUpon>FrmAndonSmart2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonOSR2.resx">
+      <DependentUpon>FrmAndonOSR2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonAcc_UPH.resx">
+      <DependentUpon>FrmAndonAcc_UPH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonIP_CKP.resx">
+      <DependentUpon>FrmAndonIP_CKP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonOSR.resx">
+      <DependentUpon>FrmAndonOSR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonAcc_UPE_UPF.resx">
+      <DependentUpon>FrmAndonAcc_UPE_UPF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonAcc_CINSKIINC.resx">
+      <DependentUpon>FrmAndonAcc_CINSKIINC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantMMTL.resx">
+      <DependentUpon>FrmAndonPlantMMTL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantD_UPC_UPN.resx">
+      <DependentUpon>FrmAndonPlantD_UPC_UPN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantD_UPS.resx">
+      <DependentUpon>FrmAndonPlantD_UPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantD_FSS_FGA.resx">
+      <DependentUpon>FrmAndonPlantD_FSS_FGA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPH_CKP.resx">
+      <DependentUpon>FrmAndonPH_CKP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantBC_UPC_UPN.resx">
+      <DependentUpon>FrmAndonPlantBC_UPC_UPN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlantBC_UPS.resx">
+      <DependentUpon>FrmAndonPlantBC_UPS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonOSP.resx">
+      <DependentUpon>FrmAndonOSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonPlant_FSS_FGA.resx">
+      <DependentUpon>FrmAndonPlant_FSS_FGA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAndonSmart.resx">
+      <DependentUpon>FrmAndonSmart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="bin\Debug\digital-7.ttf" />
+    <None Include="JJ_Andon.exe.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base\Base.csproj">
+      <Project>{374B7675-8DC6-4B70-A045-09AFCE77ECE0}</Project>
+      <Name>Base</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Andon.exe" />
+    <Content Include="bin\Debug\Andon.pdb" />
+    <Content Include="bin\Debug\Andon.vshost.exe" />
+    <Content Include="bin\Debug\Base.dll" />
+    <Content Include="bin\Debug\Base.pdb" />
+    <Content Include="bin\Debug\App.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\Debug\LiveUpdate.exe" />
+    <Content Include="bin\Debug\liveupdate_url.xml" />
+    <EmbeddedResource Include="Resources\assembly.wav" />
+    <EmbeddedResource Include="Resources\stockfit.wav" />
+    <EmbeddedResource Include="Resources\zona.wav" />
+    <None Include="Resources\arrow_left_512px.png" />
+    <None Include="Resources\arrow_right_512px.png" />
+    <EmbeddedResource Include="Resources\tim leader.wav" />
+    <EmbeddedResource Include="Resources\no sew.wav" />
+    <EmbeddedResource Include="Resources\stitching.wav" />
+    <EmbeddedResource Include="Resources\buffing.wav" />
+    <EmbeddedResource Include="Resources\cmp.wav" />
+    <EmbeddedResource Include="Resources\ctm.wav" />
+    <EmbeddedResource Include="Resources\elektrik.wav" />
+    <EmbeddedResource Include="Resources\komputer.wav" />
+    <EmbeddedResource Include="Resources\91.wav" />
+    <EmbeddedResource Include="Resources\banbury.wav" />
+    <Content Include="JJ_Andon.exe" />
+    <Content Include="Resources\circle.png" />
+    <Content Include="Resources\circle1.png" />
+    <EmbeddedResource Include="Resources\ip.wav" />
+    <EmbeddedResource Include="Resources\evacalendar.wav" />
+    <EmbeddedResource Include="Resources\kneader.wav" />
+    <EmbeddedResource Include="Resources\miniroll.wav" />
+    <EmbeddedResource Include="Resources\mixingroll.wav" />
+    <EmbeddedResource Include="Resources\outsole.wav" />
+    <EmbeddedResource Include="Resources\cuttingrubber.wav" />
+    <EmbeddedResource Include="Resources\minicalendar.wav" />
+    <EmbeddedResource Include="Resources\dumpingroll.wav" />
+    <EmbeddedResource Include="Resources\cup_insole.wav" />
+    <EmbeddedResource Include="Resources\embroidery.wav" />
+    <EmbeddedResource Include="Resources\hf_welding.wav" />
+    <EmbeddedResource Include="Resources\insole_cut.wav" />
+    <EmbeddedResource Include="Resources\molding.wav" />
+    <None Include="Resources\folder-1.png" />
+    <None Include="Resources\location_2.wav" />
+    <None Include="Resources\lokasi_2.wav" />
+    <Content Include="Resources\Picture10.png" />
+    <Content Include="Resources\Picture2_1.png" />
+    <EmbeddedResource Include="Resources\umum.wav" />
+    <EmbeddedResource Include="Resources\uv.wav" />
+    <EmbeddedResource Include="Resources\station.wav" />
+    <EmbeddedResource Include="Resources\quality.wav" />
+    <EmbeddedResource Include="Resources\stroble.wav" />
+    <EmbeddedResource Include="Resources\tim ce.wav" />
+    <EmbeddedResource Include="Resources\tim cqm.wav" />
+    <EmbeddedResource Include="Resources\tim qa.wav" />
+    <EmbeddedResource Include="Resources\press.wav" />
+    <EmbeddedResource Include="Resources\roll.wav" />
+    <EmbeddedResource Include="Resources\rolleva.wav" />
+    <EmbeddedResource Include="Resources\rubbercalendar.wav" />
+    <EmbeddedResource Include="Resources\skiving.wav" />
+    <Content Include="speaker.ico" />
+    <Content Include="Resources\Picture6.png" />
+    <Content Include="Resources\Picture7.png" />
+    <Content Include="Resources\Picture8.png" />
+    <Content Include="Resources\Picture9.png" />
+    <EmbeddedResource Include="Resources\trimming.wav" />
+    <EmbeddedResource Include="Resources\panggilan.wav" />
+    <EmbeddedResource Include="Resources\open.wav" />
+    <EmbeddedResource Include="Resources\mesin.wav" />
+    <EmbeddedResource Include="Resources\maintenance.wav" />
+    <EmbeddedResource Include="Resources\line.wav" />
+    <EmbeddedResource Include="Resources\hii-ter.wav" />
+    <EmbeddedResource Include="Resources\cutting.wav" />
+    <EmbeddedResource Include="Resources\close.wav" />
+    <EmbeddedResource Include="Resources\52.wav" />
+    <EmbeddedResource Include="Resources\51.wav" />
+    <EmbeddedResource Include="Resources\50.wav" />
+    <EmbeddedResource Include="Resources\49.wav" />
+    <EmbeddedResource Include="Resources\48.wav" />
+    <EmbeddedResource Include="Resources\47.wav" />
+    <EmbeddedResource Include="Resources\46.wav" />
+    <EmbeddedResource Include="Resources\45.wav" />
+    <EmbeddedResource Include="Resources\44.wav" />
+    <EmbeddedResource Include="Resources\43.wav" />
+    <EmbeddedResource Include="Resources\42.wav" />
+    <EmbeddedResource Include="Resources\41.wav" />
+    <EmbeddedResource Include="Resources\40.wav" />
+    <EmbeddedResource Include="Resources\39.wav" />
+    <EmbeddedResource Include="Resources\38.wav" />
+    <EmbeddedResource Include="Resources\37.wav" />
+    <EmbeddedResource Include="Resources\36.wav" />
+    <EmbeddedResource Include="Resources\35.wav" />
+    <EmbeddedResource Include="Resources\34.wav" />
+    <EmbeddedResource Include="Resources\33.wav" />
+    <EmbeddedResource Include="Resources\32.wav" />
+    <EmbeddedResource Include="Resources\31.wav" />
+    <EmbeddedResource Include="Resources\30.wav" />
+    <EmbeddedResource Include="Resources\29.wav" />
+    <EmbeddedResource Include="Resources\28.wav" />
+    <EmbeddedResource Include="Resources\27.wav" />
+    <EmbeddedResource Include="Resources\26.wav" />
+    <EmbeddedResource Include="Resources\25.wav" />
+    <EmbeddedResource Include="Resources\24.wav" />
+    <EmbeddedResource Include="Resources\23.wav" />
+    <EmbeddedResource Include="Resources\22.wav" />
+    <EmbeddedResource Include="Resources\21.wav" />
+    <EmbeddedResource Include="Resources\20.wav" />
+    <EmbeddedResource Include="Resources\19.wav" />
+    <EmbeddedResource Include="Resources\18.wav" />
+    <EmbeddedResource Include="Resources\17.wav" />
+    <EmbeddedResource Include="Resources\16.wav" />
+    <EmbeddedResource Include="Resources\15.wav" />
+    <EmbeddedResource Include="Resources\14.wav" />
+    <EmbeddedResource Include="Resources\13.wav" />
+    <EmbeddedResource Include="Resources\12.wav" />
+    <EmbeddedResource Include="Resources\11.wav" />
+    <EmbeddedResource Include="Resources\10.wav" />
+    <EmbeddedResource Include="Resources\9.wav" />
+    <EmbeddedResource Include="Resources\8.wav" />
+    <EmbeddedResource Include="Resources\7.wav" />
+    <EmbeddedResource Include="Resources\6.wav" />
+    <EmbeddedResource Include="Resources\5.wav" />
+    <EmbeddedResource Include="Resources\4.wav" />
+    <EmbeddedResource Include="Resources\3.wav" />
+    <EmbeddedResource Include="Resources\2.wav" />
+    <EmbeddedResource Include="Resources\1.wav" />
+    <Content Include="Resources\Picture2.png" />
+    <Content Include="Resources\Picture1.png" />
+    <Content Include="Resources\Picture3.png" />
+    <Content Include="Resources\Picture4.png" />
+    <Content Include="Resources\Picture5.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

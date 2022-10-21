@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <formName>FrmAndonSmart</formName>
+  <monitor>2</monitor>
+  <plant_cd>3110</plant_cd>
+  <location>51BT</location>
+  <area>OSP</area>
+  <item_class>OS</item_class>
+  <division>MEP</division>
+  <times>2</times>        <!-- second -->
+  <repeat>3</repeat>
+  <refresh>5</refresh>   <!-- minutes -->
+  <line>
+    <from>1</from>
+    <to>58</to>
+  </line>
+  <machine>
+    <from>1</from>
+    <to>12</to>
+  </machine>
+</settings>

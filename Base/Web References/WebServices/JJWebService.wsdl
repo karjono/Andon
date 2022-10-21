@@ -1,0 +1,3038 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/webservices/">
+      <s:element name="get_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Welcome">
+        <s:complexType />
+      </s:element>
+      <s:element name="WelcomeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WelcomeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YMD_Update">
+        <s:complexType />
+      </s:element>
+      <s:element name="YMD_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YMD_UpdateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="IMS_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IMS_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IMS_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IMS_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMS_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMS_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMS_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IMS_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMS_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IMS_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_Multi_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgName" type="tns:ArrayOfDataTable" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfDataTable" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDataTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataTable" nillable="true">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IMS_Pkg_Multi_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IMS_Pkg_Multi_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IMS_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IMS_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_HRP_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_HRP_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_HRP_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="HRP_IMS_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HRP_IMS_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HRP_IMS_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HRP_IMS_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HRP_IMS_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HRP_IMS_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HRP_IMS_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HRP_IMS_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HRP_IMS_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HRP_IMS_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_WASTE_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_WASTE_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_WASTE_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="WASTE_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WASTE_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WASTE_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WASTE_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WASTE_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WASTE_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WASTE_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WASTE_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WASTE_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WASTE_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_EAM_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_EAM_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_EAM_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="EAM_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EAM_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EAM_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EAM_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EAM_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EAM_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EAM_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EAM_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EAM_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EAM_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_HUBIC_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_HUBIC_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_HUBIC_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="HUBIC_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HUBIC_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HUBIC_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HUBIC_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HUBIC_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HUBIC_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HUBIC_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HUBIC_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HUBIC_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HUBIC_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_GMES_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_GMES_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_GMES_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="GMES_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GMES_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GMES_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GMES_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GMES_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GMES_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GMES_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GMES_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GMES_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GMES_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get_LMES_DBErrorMsg">
+        <s:complexType />
+      </s:element>
+      <s:element name="get_LMES_DBErrorMsgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get_LMES_DBErrorMsgResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Connections">
+        <s:complexType />
+      </s:element>
+      <s:element name="LMES_ConnectionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LMES_ConnectionsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StrQry" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LMES_Query_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LMES_Query_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_Select_Dt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_Select_DtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LMES_Query_Select_DtResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_GetValue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Query_GetValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LMES_Query_GetValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_Select_Ds">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_Select_DsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LMES_Pkg_Select_DsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_Modify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_ModifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LMES_Pkg_ModifyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_Get_Value">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgNAme" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgTypeData" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="ArgValue" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="indexvalue" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LMES_Pkg_Get_ValueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LMES_Pkg_Get_ValueResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="get_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="WelcomeSoapIn">
+    <wsdl:part name="parameters" element="tns:Welcome" />
+  </wsdl:message>
+  <wsdl:message name="WelcomeSoapOut">
+    <wsdl:part name="parameters" element="tns:WelcomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="YMD_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:YMD_Update" />
+  </wsdl:message>
+  <wsdl:message name="YMD_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:YMD_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Connections" />
+  </wsdl:message>
+  <wsdl:message name="IMS_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Multi_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Multi_Modify" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Multi_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Multi_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="IMS_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:IMS_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_HRP_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_HRP_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_HRP_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_HRP_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Connections" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="HRP_IMS_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:HRP_IMS_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_WASTE_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_WASTE_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_WASTE_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_WASTE_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Connections" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="WASTE_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:WASTE_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_EAM_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_EAM_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_EAM_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_EAM_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Connections" />
+  </wsdl:message>
+  <wsdl:message name="EAM_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="EAM_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:EAM_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_HUBIC_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_HUBIC_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_HUBIC_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_HUBIC_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Connections" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="HUBIC_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:HUBIC_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_GMES_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_GMES_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_GMES_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_GMES_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Connections" />
+  </wsdl:message>
+  <wsdl:message name="GMES_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="GMES_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:GMES_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="get_LMES_DBErrorMsgSoapIn">
+    <wsdl:part name="parameters" element="tns:get_LMES_DBErrorMsg" />
+  </wsdl:message>
+  <wsdl:message name="get_LMES_DBErrorMsgSoapOut">
+    <wsdl:part name="parameters" element="tns:get_LMES_DBErrorMsgResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_ConnectionsSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Connections" />
+  </wsdl:message>
+  <wsdl:message name="LMES_ConnectionsSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_ConnectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Query_Modify" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Query_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Query_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Query_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_Select_DtSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Query_Select_Dt" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_Select_DtSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Query_Select_DtResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_GetValueSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Query_GetValue" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Query_GetValueSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Query_GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_Select_DsSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_Select_Ds" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_Select_DsSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_Select_DsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_ModifySoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_Modify" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_ModifySoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_ModifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_Get_ValueSoapIn">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_Get_Value" />
+  </wsdl:message>
+  <wsdl:message name="LMES_Pkg_Get_ValueSoapOut">
+    <wsdl:part name="parameters" element="tns:LMES_Pkg_Get_ValueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="JJWebServiceSoap">
+    <wsdl:operation name="get_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Welcome">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Welcome to jj</wsdl:documentation>
+      <wsdl:input message="tns:WelcomeSoapIn" />
+      <wsdl:output message="tns:WelcomeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YMD_Update">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update service</wsdl:documentation>
+      <wsdl:input message="tns:YMD_UpdateSoapIn" />
+      <wsdl:output message="tns:YMD_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:IMS_ConnectionsSoapIn" />
+      <wsdl:output message="tns:IMS_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Query_ModifySoapIn" />
+      <wsdl:output message="tns:IMS_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:IMS_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:IMS_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:IMS_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:IMS_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:IMS_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Multi_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Pkg_Multi_ModifySoapIn" />
+      <wsdl:output message="tns:IMS_Pkg_Multi_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:IMS_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:IMS_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_HRP_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_HRP_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_HRP_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_ConnectionsSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Query_ModifySoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:HRP_IMS_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:HRP_IMS_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_WASTE_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_WASTE_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_WASTE_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_ConnectionsSoapIn" />
+      <wsdl:output message="tns:WASTE_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Query_ModifySoapIn" />
+      <wsdl:output message="tns:WASTE_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:WASTE_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:WASTE_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:WASTE_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:WASTE_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:WASTE_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:WASTE_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:WASTE_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_EAM_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_EAM_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_EAM_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:EAM_ConnectionsSoapIn" />
+      <wsdl:output message="tns:EAM_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Query_ModifySoapIn" />
+      <wsdl:output message="tns:EAM_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:EAM_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:EAM_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:EAM_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:EAM_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:EAM_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:EAM_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:EAM_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_HUBIC_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_HUBIC_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_HUBIC_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_ConnectionsSoapIn" />
+      <wsdl:output message="tns:HUBIC_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Query_ModifySoapIn" />
+      <wsdl:output message="tns:HUBIC_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:HUBIC_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:HUBIC_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:HUBIC_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:HUBIC_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:HUBIC_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:HUBIC_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:HUBIC_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_GMES_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_GMES_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_GMES_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:GMES_ConnectionsSoapIn" />
+      <wsdl:output message="tns:GMES_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Query_ModifySoapIn" />
+      <wsdl:output message="tns:GMES_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:GMES_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:GMES_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:GMES_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:GMES_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:GMES_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:GMES_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:GMES_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get_LMES_DBErrorMsg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get database error message</wsdl:documentation>
+      <wsdl:input message="tns:get_LMES_DBErrorMsgSoapIn" />
+      <wsdl:output message="tns:get_LMES_DBErrorMsgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Connections">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Connection strings, Return True or False</wsdl:documentation>
+      <wsdl:input message="tns:LMES_ConnectionsSoapIn" />
+      <wsdl:output message="tns:LMES_ConnectionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Transaction query(Insert/Update/Delete)</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Query_ModifySoapIn" />
+      <wsdl:output message="tns:LMES_Query_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with OracleDataAdapter from standard query</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Query_Select_DsSoapIn" />
+      <wsdl:output message="tns:LMES_Query_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Dt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with standard query &amp; return datatable</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Query_Select_DtSoapIn" />
+      <wsdl:output message="tns:LMES_Query_Select_DtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_GetValue">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value from table</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Query_GetValueSoapIn" />
+      <wsdl:output message="tns:LMES_Query_GetValueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Select_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data from procedure or package and return dataset</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Pkg_Select_DsSoapIn" />
+      <wsdl:output message="tns:LMES_Pkg_Select_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Modify">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get data with procedure datatable</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Pkg_ModifySoapIn" />
+      <wsdl:output message="tns:LMES_Pkg_ModifySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Get_Value">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get value with procedure datareader and return all type</wsdl:documentation>
+      <wsdl:input message="tns:LMES_Pkg_Get_ValueSoapIn" />
+      <wsdl:output message="tns:LMES_Pkg_Get_ValueSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JJWebServiceSoap" type="tns:JJWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Welcome">
+      <soap:operation soapAction="http://localhost/webservices/Welcome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YMD_Update">
+      <soap:operation soapAction="http://localhost/webservices/YMD_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Connections">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Multi_Modify">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Pkg_Multi_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/IMS_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_HRP_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_HRP_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Connections">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_WASTE_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_WASTE_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Connections">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/WASTE_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_EAM_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_EAM_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Connections">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/EAM_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_HUBIC_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_HUBIC_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Connections">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_GMES_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_GMES_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Connections">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/GMES_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_LMES_DBErrorMsg">
+      <soap:operation soapAction="http://localhost/webservices/get_LMES_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Connections">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Connections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Modify">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Dt">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_GetValue">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Select_Ds">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Modify">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Get_Value">
+      <soap:operation soapAction="http://localhost/webservices/LMES_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JJWebServiceSoap12" type="tns:JJWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="get_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Welcome">
+      <soap12:operation soapAction="http://localhost/webservices/Welcome" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YMD_Update">
+      <soap12:operation soapAction="http://localhost/webservices/YMD_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Multi_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Pkg_Multi_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IMS_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/IMS_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_HRP_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_HRP_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HRP_IMS_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/HRP_IMS_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_WASTE_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_WASTE_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WASTE_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/WASTE_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_EAM_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_EAM_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EAM_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/EAM_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_HUBIC_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_HUBIC_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HUBIC_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/HUBIC_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_GMES_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_GMES_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GMES_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/GMES_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get_LMES_DBErrorMsg">
+      <soap12:operation soapAction="http://localhost/webservices/get_LMES_DBErrorMsg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Connections">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Connections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Query_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Query_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_Select_Dt">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Query_Select_Dt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Query_GetValue">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Query_GetValue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Select_Ds">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Pkg_Select_Ds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Modify">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Pkg_Modify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LMES_Pkg_Get_Value">
+      <soap12:operation soapAction="http://localhost/webservices/LMES_Pkg_Get_Value" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JJWebService">
+    <wsdl:port name="JJWebServiceSoap" binding="tns:JJWebServiceSoap">
+      <soap:address location="http://10.10.100.8/JJ_IMS_Prod/JJWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JJWebServiceSoap12" binding="tns:JJWebServiceSoap12">
+      <soap12:address location="http://10.10.100.8/JJ_IMS_Prod/JJWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
